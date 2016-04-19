@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'catagories/index'
+
+  get 'catagories/edit'
+
+  get 'catagories/new'
+
+  get 'catagories/show'
+
   get 'home/index'
   resources :posts
   resources :catagories
