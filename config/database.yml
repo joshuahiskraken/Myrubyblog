@@ -34,6 +34,6 @@ production:
   adapter: postgresql
   database: myrubyblog
   username: postgres
-  password: WAN101202rails 
+  password: WAN101202
   pool: 5
   timeout: 5000

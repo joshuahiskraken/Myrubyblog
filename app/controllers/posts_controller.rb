@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
 	end
 	def create
+	Catagory.create(catagory_params)
 
 	end
 	def new
@@ -22,5 +23,28 @@ class PostsController < ApplicationController
 	def show
 
 	end
+
+
+
+private
+
+def catagory_params
+
+params.require(:name).permit(:id)
+
+end
+	def create
+
+Post.create(post_params)
+
+end
+
+private
+
+def post_params
+
+params.require(:title, :body, :category_id, :author_id)
+
+end
 
 end
