@@ -7,11 +7,17 @@ class PostsController < ApplicationController
 
 	end
 	def create
-	Catagory.create(catagory_params)
-
-	end
+		@post = Post.new(params[:post])
+		if @post.save
+			redirect_to posts_path, :notice => "Your post has been saved"
+		else	
+			render "new"
+		end
+	end	
+	
 	def new
-
+		@post = Post.new
+		@catagory = Catagory.all 
 	end
 	def update
 
@@ -32,18 +38,12 @@ def catagory_params
 params.require(:name).permit(:id)
 
 end
-	def create
-
-Post.create(post_params)
-
-end
 
 private
 
 def post_params
 
-params.require(:title, :body, :category_id, :author_id)
-
+params.require(:post).permit(:category_id, :title, :body) 
 end
 
 end
